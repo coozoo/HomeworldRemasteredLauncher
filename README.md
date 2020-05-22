@@ -192,7 +192,7 @@ In script there is an option to setup wineprefix and load it up with directx, vc
 
 It is required winetricks installed to your system. For example for Fedora it is `# dnf install winetricks`.
 
-Launch script `./homeworldlauncher.sh` and select "Setup prefix (Run First)" by entering number and hitting Enter.
+Launch script `./homeworldlauncher.sh` and select "Setup prefix (Run First)" by entering number (6) and hitting Enter.
 
 Wait till installers will finish all of the jobs.
 
