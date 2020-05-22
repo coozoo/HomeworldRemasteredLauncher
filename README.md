@@ -91,7 +91,7 @@ Launch steam again and install Homeworld remastered.
 
 ## Using launcher
 
-### Doownload
+### Download launcher
 
 Sure you can download it in any other way
 
