@@ -35,7 +35,7 @@ All of this allows me do not think about:
     - oh not again, steam FPS counter again not visible under wine?
     - what a crap message from steam?...
 
-Maybe somehing more... but that's how it is my case.
+Maybe somehing more... but that's how it works in my case.
 
 ## Preparations to use script
 
