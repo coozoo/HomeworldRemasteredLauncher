@@ -225,7 +225,7 @@ GUI selector:
 
 or create symlink to it `$ ln -s ./homeworldlauncher.sh "./hwlauncher-gui"` and launch `./hwlauncher-gui`
 
-<img src="" width="60%">https://user-images.githubusercontent.com/25594311/82635555-18a00380-9c09-11ea-97b1-33d422e0040d.png</img>
+<img src="https://user-images.githubusercontent.com/25594311/82635555-18a00380-9c09-11ea-97b1-33d422e0040d.png" width="60%"></img>
 
 ### Termminal launcher mode
 
@@ -237,7 +237,7 @@ It is required whiptail to start TUI. In my distro it was installed by default.
 
 or create symlink to it `$ ln -s ./homeworldlauncher.sh "./hwlauncher-tui"` and launch `./hwlauncher-tui`
 
-<img src="" width="60%">https://user-images.githubusercontent.com/25594311/82635926-125e5700-9c0a-11ea-946a-681343f27964.png</img>
+<img src="https://user-images.githubusercontent.com/25594311/82635926-125e5700-9c0a-11ea-946a-681343f27964.png" width="60%"></img>
 
 ### Script cutomizations
 
