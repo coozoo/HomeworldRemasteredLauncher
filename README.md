@@ -128,7 +128,7 @@ Launcher supports next arguments:
 By default game will be launched using environment language.  
 You can force another language by setting up LANG variable.  
 
-Next UI languages are available fo all homeworld games:
+Next UI languages are available for all homeworld games:
 
     - English;
     - German;
