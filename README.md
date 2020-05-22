@@ -111,6 +111,7 @@ $ chmod 777 homeworldlauncher.sh
 ### Supported arguments
 
 Launcher supports next arguments:
+
     - ID of action:
 	* [1] Homeworld - original classic Homeworld game;
 	* [2] Homeworld 2 - original classic Homeworld2 game;
@@ -128,6 +129,7 @@ By default game will be launched using environment language.
 You can force another language by setting up LANG variable.  
 
 All of the games support next UI languages:
+
     - English;
     - German;
     - Spanish;
@@ -135,6 +137,7 @@ All of the games support next UI languages:
     - Italian;
     
 Just examples:
+
     - `LANG=en_US.UTF-8 ./homeworldlauncher.sh 3` to force English;
     - `LANG=de_DE.UTF-8 ./homeworldlauncher.sh 3` to force German;
     - `LANG=es_ES.UTF-8 ./homeworldlauncher.sh 3` to force Spanish;
