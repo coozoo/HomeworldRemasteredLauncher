@@ -66,7 +66,7 @@ To setup Lutris steam game perform next steps:
 After downloading wine version you need to go to main Lutris window and launch "Wine Steam" by Run button.  
 Setup steam to autologin. And install game inside steam (it can be black inside just move mouse over steam windows and images will flicker and appear for you). Wait till the game will be downloaded.
 
-### Playonlinux
+#### Playonlinux
 
 It's possible to use playonlinux with steam but it appears to be more problematic than Lutris. But GOG users should be fine with that.
 
