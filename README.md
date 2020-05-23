@@ -315,6 +315,17 @@ Games work under Wine>5 (tested with up to 5.7) but there is some problems with 
 
 Don't try to use 32bit wine FPS in remastered version will be significatly lower that 64bit.
 
+Wineprefix should contain:
+
+    - all of directx
+    - dxdiag
+    - vcrun(2003-2015)
+    - tahoma
+    - corefonts
+    - smooth rgb
+
+Inside script there is option to do that for you (6). You can view it closely inside "function setupprefix".
+
 ### Original Homeworld .NET launcher
 
 It is simply doesn't work. Even with 32bit prefix (cause .NET support in wine for 32 better that 64) it doesn't work.  
@@ -323,10 +334,24 @@ As reported in internet you need to use this launcher to activate multiplayer ga
 ### Homeworld
 
 Homeworld classic game doesn't work by default under wine. You need to pass some parameters to force it in OpenGL mode.  
-Example of arguments to run it under wine `-waveout -1024 -safeGL -waveout -noglddraw -noswddraw -nofastfe -triple`
-This one works with wine 5 and wine 4.2 but actually I didn't test it a lot.
+Example of arguments to run it under wine `-waveout -1024 -safeGL -waveout -noglddraw -noswddraw -nofastfe -triple`  
+This one works with wine 5 and wine 4.2 but actually I didn't test it a lot.  
+Resolution pretty strict so it's better to use windowed mode and prevent mouse from leaving wine window.
 
+### Homeworld2
 
+Homeworld2 classic game it works by default you can start it and play but.  
+
+If you want to set LOD to maximum tt will crash under wine5 you can eliminate crashes caused by some of LOD settings by installing winetricks something like glsl enabled, rendered opengl, renderer lock readdraw but anyway with all high settings it will crash.  
+
+To eliminate high settings crash completly you need to run game under Wine4.2.
+
+In-game resolutions list pretty limited but looks like Homeworld2 supports any resolution you just need to set it in arguments.  
+As for homeworld I prefer to use windowed mode and sure again it is requiered to mark option in wine that prevent mouse to leave game window.
+
+Example of command line `-w 1024 -h 768 -hardwarecursor`.
+
+Language support from .big files and can be set by `-locale German`. But looks like it's only for UI, I'm not sure that game contains sounds for other languages but if it's true thatn maybe it's possible to handle by file renaming(I've tried with German and didn't sight the differnce looks like all sound left in English).
 
 
 
