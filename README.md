@@ -313,7 +313,7 @@ Homeworld remastered games will resize wine window accordingly to ingame setting
 Games run smoothly almost without problems using all of tweaks but without them only homeworld2 will be able to launch by default.  
 So this script actually a set of tweaks.
 
-Games work under Wine>5 (tested with up to 5.7) but there is some problems with it and to eliminate them it's better to use Wine4(tested with 4.2 latest available in lutris and playonlinux).
+Games work under Wine>5 (tested with up to 5.7) but there is some problems with it and to eliminate them it's better to use Wine4(tested with 4.21 latest available in lutris and playonlinux).
 
 Don't try to use 32bit wine FPS in remastered version will be significatly lower that 64bit.
 
@@ -337,7 +337,7 @@ As reported in internet you need to use this launcher to activate multiplayer ga
 
 Homeworld classic game doesn't work by default under wine. You need to pass some parameters to force it in OpenGL mode.  
 Example of arguments to run it under wine `-waveout -1024 -safeGL -waveout -noglddraw -noswddraw -nofastfe -triple`  
-This one works with wine 5 and wine 4.2 but actually I didn't test it a lot.  
+This one works with wine 5 and wine 4.21 but actually I didn't test it a lot.  
 Resolution pretty strict so it's better to use windowed mode and prevent mouse from leaving wine window.
 
 ### Homeworld2
@@ -346,7 +346,7 @@ Homeworld2 classic game it works by default you can start it and play but.
 
 If you want to set LOD to maximum tt will crash under wine5 you can eliminate crashes caused by some of LOD settings by installing winetricks something like glsl enabled, rendered opengl, renderer lock readdraw but anyway with all high settings it will crash.  
 
-To eliminate high settings crash completly you need to run game under Wine4.2.
+To eliminate high settings crash completly you need to run game under Wine4.21.
 
 In-game resolutions list pretty limited but looks like Homeworld2 supports any resolution you just need to set it in arguments.  
 As for homeworld I prefer to use windowed mode and sure again it is requiered to mark option in wine that prevent mouse to leave game window.
@@ -362,7 +362,7 @@ Game requires command line to use remastered versions. You can find those comman
 
 With wine5 intro video will be in creep some kind of flickering loop of attempts to play it. But any other videos looks like played fine I've didn't played game to the end yet(and I won't under wine5). To eliminate this you can install winetricks directpplay and directmusic, but I'm not sure looks like it has more crashes with them on high settings.
 
-Wine 4.2 intro video runs nice looks like high settings more stable with it but still there is some problem with few of them:
+Wine 4.21 intro video runs nice looks like high settings more stable with it but still there is some problem with few of them:
 
     - TEXTURE QUALITY: 6-MEDIUM - works stable, higher values sometimes causing troubles on load level
     - TEXTURE SIZE LIMIT: 2048 - works stable, any higher value failed to load level
