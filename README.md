@@ -31,9 +31,6 @@ So this script attempt to make game launcher for linux using game installed by S
       * [Customize wineprefix](#customize-wineprefix)
       * [Disable using optimus](#disable-using-optimus)
       * [Ingame screen resolution](#ingame-screen-resolution)
-         * [Homeworld Classic game](#homeworld-classic-game)
-	 * [Homeworld2 Classic game](#homeworld2-classic-game)
-	 * [Homeworld Remastered games](#homeworld-remastered-games)
 
 ## Features
 
