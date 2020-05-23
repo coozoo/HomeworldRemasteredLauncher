@@ -4,7 +4,7 @@
 
 It's just a Homeworld remastered game launcher.
 
-This windows only Space strategy game with launcher written in .NET which actually doesn't works in wine. Remastered game collection contains original old games and new remastered version.
+This MS Windows only Space strategy game with launcher written in .NET which actually doesn't work in wine. Remastered game collection contains original old games and new remastered version.
 All of this games has a lot of parameters. And needs wineprefix with some tricks to run smothly.
 
 So this script attempt to make game launcher for linux using game installed by Steam or GOG (it's not hard to add more options to detect game) inside lutris or playonlinux wineprefixes.
