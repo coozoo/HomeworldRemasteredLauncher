@@ -9,6 +9,8 @@ All of this games has a lot of parameters. And needs wineprefix with some tricks
 
 So this script attempt to make game launcher for linux using game installed by Steam or GOG (it's not hard to add more options to detect game) inside lutris or playonlinux wineprefixes.
 
+<img src="https://user-images.githubusercontent.com/25594311/82635249-75e78500-9c08-11ea-9773-7fecd0cd06b4.png" width="60%"></img>
+
 ## Contents
 
 * [Features](#features)
