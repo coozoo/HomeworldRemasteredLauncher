@@ -10,6 +10,33 @@ All of this games has a lot of parameters. And needs wineprefix with some tricks
 So this script attempt to make game launcher for linux using game installed by Steam or GOG (it's not hard to add more options to detect game) inside lutris or playonlinux wineprefixes.
 
 
+## Contents
+
+* [Features](#features)
+* [Preparations to use script](#preparations-to-use-script)
+   * [Setup Games inside Lutris or POL](#setup-games-inside-lutris-or-pol)
+      * [lutris](#lutris)
+      * [Playonlinux](#Playonlinux)
+* [Using launcher](#using-launcher)
+   * [Download launcher script](#download-launcher)
+   * [Supported arguments](#supported-arguments)
+      * [In game UI Language](#in-game-ui-language)
+      * [Quick start symlinks](#quick-start-symlinks)
+      * [Command line examples](#command-line-examples)
+   * [Setup wineprefix](#setup-wineprefix)   
+   * [Script modes](#script-modes)
+      * [Command line launcher mode](#command-line-launcher-mode)
+      * [GUI launcher mode](#gui-launcher-mode)
+      * [Terminal launcher mode](#terminal-launcher-mode)
+   * [Script cutomizations](#script-cutomizations)
+      * [Customize wineprefix](#customize-wineprefix)
+      * [Disable using optimus](#disable-using-optimus)
+      * [Ingame screen resolution](#ingame-screen-resolution)
+      * [Customize wineprefix](#customize-wineprefix)
+   
+   
+
+
 ## Features
 
 This launcher contains next features:
@@ -201,7 +228,9 @@ If you want to play game and navigate in space without problems you need to sele
 
 That's all now you will be able to run games
 
-### Command line launcher mode
+### Script modes 
+
+#### Command line launcher mode
 
 Cli mode is default you need to launch it by
 
@@ -213,7 +242,7 @@ type the number of option and hit Enter.
 
 <img src="https://user-images.githubusercontent.com/25594311/82635249-75e78500-9c08-11ea-9773-7fecd0cd06b4.png" width="60%"></img>
 
-### GUI launcher mode
+#### GUI launcher mode
 
 It is required zenity to start GUI. In my distro it was installed by default.
 
@@ -227,7 +256,7 @@ or create symlink to it `$ ln -s ./homeworldlauncher.sh "./hwlauncher-gui"` and 
 
 <img src="https://user-images.githubusercontent.com/25594311/82635555-18a00380-9c09-11ea-97b1-33d422e0040d.png" width="60%"></img>
 
-### Terminal launcher mode
+#### Terminal launcher mode
 
 It is required whiptail to start TUI. In my distro it was installed by default.
 
@@ -243,7 +272,7 @@ or create symlink to it `$ ln -s ./homeworldlauncher.sh "./hwlauncher-tui"` and 
 
 Sure you can modify it any way what you want but here few inputs.
 
-#### Setting custom wineprefix
+#### Customize wineprefix
 
 Script search installs inside lutris Wine Steam prefix and all 64bit playonlinux prefixes.
 
@@ -260,13 +289,21 @@ Then find `useoptirun=1` and change it to `useoptirun=0`
 
 Old games Homeworld and Homeworld2 has limited set of screen resolutions so script will determine your current screen width and height and set ingame resolution accordingly.
 
+To disable this behavior find `useautoresolution=1` and change it to `useautoresolution=0`. In this case don't forget to check default screen size values inside starthomeworld function. Check screenWidth and screenHeight variables for first and second if and change it apropriatly. 
+
+##### Homeworld Classic game
+
 Homeworld screen resolution pretty strict so script will use first resolution that will fit to your screen.
+
+##### Homeworld2 Classic game
 
 Homeworld2 looks like can support any resolution. They simply are not available inside game options. So this script will set width accordingly to your screen and height a bit less to left space for bars.
 
+##### Homeworld Remastered games
+
 Homeworld remastered games will resize wine window accordingly to ingame settings (didn't try if command line screens are supported)
 
-To disable this behavior find `useautoresolution=1` and change it to `useautoresolution=0`. In this case don't forget to check default screen size values inside starthomeworld function. Check screenWidth and screenHeight variables for first and second if and change it apropriatly. 
+
 
 
 
