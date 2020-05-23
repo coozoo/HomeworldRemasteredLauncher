@@ -372,8 +372,11 @@ Language support the same as in cace of homeworld2 and available from .big files
 
 ### Steam start
 
-When you launching game from command line without steam launched inside wine. You will get some stupid message that someone trying to launch game do you want to allow and proceed and even in case yes it does nothing.  
-So this script will launch steam for you and only when it is started it will continue with game loading
+When you launching game from command line without steam launched inside wine. You will get some stupid message that someone trying to launch game with custom parameters do you want to allow and proceed and even in case yes it does nothing.  
+So this script will launch steam for you and only when it is started it will continue with game loading.  
+There is annoying thing it's not related to wine or game itself it's simply steam very buggy when you launch steam under wine you can be disconnected from steam launched natively. Maybe it's related to the same strange thing like sometimes I have weird statuses sync if steam in one PC chat offline sometimes it can be synced and set offline on another PC and the same can be with online...
 
+# Bottomline
 
+This script made for myself but maybe it will be usefull for you :)
 
