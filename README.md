@@ -9,7 +9,6 @@ All of this games has a lot of parameters. And needs wineprefix with some tricks
 
 So this script attempt to make game launcher for linux using game installed by Steam or GOG (it's not hard to add more options to detect game) inside lutris or playonlinux wineprefixes.
 
-
 ## Contents
 
 * [Features](#features)
@@ -32,10 +31,9 @@ So this script attempt to make game launcher for linux using game installed by S
       * [Customize wineprefix](#customize-wineprefix)
       * [Disable using optimus](#disable-using-optimus)
       * [Ingame screen resolution](#ingame-screen-resolution)
-      * [Customize wineprefix](#customize-wineprefix)
-   
-   
-
+         * [Homeworld Classic game](#homeworld-classic-game)
+	 * [Homeworld2 Classic game](#homeworld2-classic-game)
+	 * [Homeworld Remastered games](#homeworld-remastered-games)
 
 ## Features
 
