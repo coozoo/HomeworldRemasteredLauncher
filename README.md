@@ -308,6 +308,26 @@ Homeworld remastered games will resize wine window accordingly to ingame setting
 
 ## Problems of Homeworld Games under Wine
 
+Games run smoothly almost without problems using all of tweaks but without them only homeworld2 will be able to launch by default.  
+So this script actually a set of tweaks.
+
+Games work under Wine>5 (tested with up to 5.7) but there is some problems with it and to eliminate them it's better to use Wine4(tested with 4.2 latest available in lutris and playonlinux).
+
+Don't try to use 32bit wine FPS in remastered version will be significatly lower that 64bit.
+
+### Original Homeworld .NET launcher
+
+It is simply doesn't work. Even with 32bit prefix (cause .NET support in wine for 32 better that 64) it doesn't work.  
+As reported in internet you need to use this launcher to activate multiplayer game. I didn't try it. But suppose you need virtualbox for that.
+
+### Homeworld
+
+Homeworld classic game doesn't work by default under wine. You need to pass some parameters to force it in OpenGL mode.  
+Example of arguments to run it under wine `-waveout -1024 -safeGL -waveout -noglddraw -noswddraw -nofastfe -triple`
+This one works with wine 5 and wine 4.2 but actually I didn't test it a lot.
+
+
+
 
 
 
