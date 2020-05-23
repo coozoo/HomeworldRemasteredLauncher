@@ -280,6 +280,13 @@ If optirun or primusrun are not available script will work with intel card.
 Maybe in some reason you want to use intel GPU instead of optimus.  
 Then find `useoptirun=1` and change it to `useoptirun=0`
 
+#### Disable/Enable osd FPS
+
+Actually to Enable it you should have `osd_cat` tool in Fedora it is provided by xosd package `# dnf install xosd`.  
+If `osd_cat` available it will show FPS automatically
+
+To disable osd FPS you need to find `useosd=""` and comment threelined if below with `#`.
+
 #### Ingame screen resolution
 
 Old games Homeworld and Homeworld2 has limited set of screen resolutions so script will determine your current screen width and height and set ingame resolution accordingly.
