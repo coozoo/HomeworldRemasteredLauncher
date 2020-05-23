@@ -351,9 +351,29 @@ As for homeworld I prefer to use windowed mode and sure again it is requiered to
 
 Example of command line `-w 1024 -h 768 -hardwarecursor`.
 
-Language support from .big files and can be set by `-locale German`. But looks like it's only for UI, I'm not sure that game contains sounds for other languages but if it's true thatn maybe it's possible to handle by file renaming(I've tried with German and didn't sight the differnce looks like all sound left in English).
+Language support from .big files and can be set by `-locale German`. But looks like it's only for UI, I'm not sure that game contains sounds for other languages but if it's true thatn maybe it's possible to handle by file renaming(I've tried with German and didn't sight the differnce looks like all sounds left in English).
 
+### Homeworld Remastered
 
+Homeworld Remastered hm it can be launched by default but game will be almost empty just tutorial available.  
+Game requires command line to use remastered versions. You can find those commands inside script.  
+
+With wine5 intro video will be in creep some kind of flickering loop of attempts to play it. But any other videos looks like played fine I've didn't played game to the end yet(and I won't under wine5). To eliminate this you can install winetricks directpplay and directmusic, but I'm not sure looks like it has more crashes with them on high settings.
+
+Wine 4.2 intro video runs nice looks like high settings more stable with it but still there is some problem with few of them:
+
+    - TEXTURE QUALITY: 6-MEDIUM - works stable, higher values sometimes causing troubles on load level
+    - TEXTURE SIZE LIMIT: 2048 - works stable, any higher value failed to load level
+    - DEPTH OF FIELD: OFF - works stable, ON value works stable but significantly lower FPS
+
+Game resolution can be set inside game settings and wine window will be resized automatically to fit game. Again "winecfg" -> "Graphics" tab -> mark checkbox "Automatically capture the mouse in full-screen windows" to navigate in game without problem of leaving window.
+
+Language support the same as in cace of homeworld2 and available from .big files it can be set by `-locale German`. But looks like it's only for UI, I'm not sure that game contains sounds for other languages but if it's true thatn maybe it's possible to handle by file renaming(I've tried with German and didn't sight the differnce looks like all sounds left in English).
+
+### Steam start
+
+When you launching game from command line without steam launched inside wine. You will get some stupid message that someone trying to launch game do you want to allow and proceed and even in case yes it does nothing.  
+So this script will launch steam for you and only when it is started it will continue with game loading
 
 
 
