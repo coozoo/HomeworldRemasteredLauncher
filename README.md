@@ -344,7 +344,7 @@ Resolution pretty strict so it's better to use windowed mode and prevent mouse f
 
 Homeworld2 classic game it works by default you can start it and play but.  
 
-If you want to set LOD to maximum tt will crash under wine5 you can eliminate crashes caused by some of LOD settings by installing winetricks something like glsl enabled, rendered opengl, renderer lock readdraw but anyway with all high settings it will crash.  
+If you want to set LOD to maximum it will crash under wine5 you can eliminate crashes caused by some of LOD settings by installing winetricks something like glsl enabled, rendered opengl, renderer lock readdraw but anyway with all high settings it will crash.  
 
 To eliminate high settings crash completly you need to run game under Wine4.21.
 
