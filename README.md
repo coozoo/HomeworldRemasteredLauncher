@@ -357,7 +357,10 @@ Language support from .big files and can be set by `-locale German`. But looks l
 
 ### Homeworld Remastered
 
-Homeworld Remastered hm it can be launched by default but game will be almost empty just tutorial available.  
+Homeworld Remastered hm it can't be launched by default.  
+You need to force report availaable version of opengl by setting.  
+`export MESA_GL_VERSION_OVERRIDE=3.3COMPAT`
+But even after that game will be almost empty just tutorial available.  
 Game requires command line to use remastered versions. You can find those commands inside script.  
 
 With wine5 intro video will be in creep some kind of flickering loop of attempts to play it. But any other videos looks like played fine I've didn't played game to the end yet(and I won't under wine5). To eliminate this you can install winetricks directpplay and directmusic, but I'm not sure looks like it has more crashes with them on high settings.
