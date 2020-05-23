@@ -50,7 +50,7 @@ This launcher contains next features:
 All of this allows me do not think about:
 
     - oh where my game? wineprefix here and game here ok;
-    - what wine do I need? oh yes previous wine one (see problems section);
+    - what wine do I need? oh yes previous wine one ([see problems section](#problems-of-homeworld-games-under-wine));
     - oh not again I've played homeworld before... now need to change wine version back.
     - oh yes I need to launch steam first;
     - Damn I forgot to start it with NVIDIA card;
@@ -192,7 +192,6 @@ Show Help:
 ```
 ./homeworldlauncher.sh -h
 ```
-
 
 Start launcher in cli mode:  
 ```
