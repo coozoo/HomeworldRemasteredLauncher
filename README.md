@@ -30,6 +30,7 @@ So this script attempt to make game launcher for linux using game installed by S
    * [Script cutomizations](#script-cutomizations)
       * [Customize wineprefix](#customize-wineprefix)
       * [Disable using optimus](#disable-using-optimus)
+      * [Disable/Enable osd FPS](#disableenable-osd-fps)
       * [Ingame screen resolution](#ingame-screen-resolution)
  * [Problems of Homeworld Games under Wine](#problems-of-homeworld-games-under-wine)
 
