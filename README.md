@@ -298,6 +298,8 @@ Homeworld2 looks like can support any resolution. They simply are not available 
 
 Homeworld remastered games will resize wine window accordingly to ingame settings (didn't try if command line screens are supported)
 
+## Problems of Homeworld Games under Wine
+
 
 
 
