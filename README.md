@@ -61,11 +61,11 @@ All of this allows me do not think about:
     - oh not again, steam FPS counter again not visible under wine?
     - what a crap message from steam?...
 
-Maybe somehing more... but that's how it works in my case.
+Maybe something more... but that's how it works in my case.
 
 ## Preparations to use script
 
-You should install Lutris or Playonlinux in the way available for your distribution. winetricks shold be installed as well
+You should install Lutris or Playonlinux in the way available for your distribution. winetricks should be installed as well
 
 ### Setup Games inside Lutris or POL
 
