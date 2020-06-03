@@ -302,11 +302,11 @@ Homeworld screen resolution pretty strict so script will use first resolution th
 
 ##### Homeworld2 Classic game
 
-Homeworld2 looks like can support any resolution. They simply are not available inside game options. So this script will set width accordingly to your screen and height a bit less to left space for bars.
+Homeworld2 looks like can support any resolution. They simply are not available inside game options. So this script will set width accordingly to your screen and height a bit less in order to left space for toolbars.
 
 ##### Homeworld Remastered games
 
-Homeworld remastered games will resize wine window accordingly to ingame settings (didn't try if command line screens are supported)
+Homeworld remastered games will resize wine window accordingly to ingame settings
 
 ## Problems of Homeworld Games under Wine
 
