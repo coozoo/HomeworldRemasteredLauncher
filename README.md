@@ -18,7 +18,7 @@ So this script attempt to make game launcher for linux using game installed by S
    * [Setup Games inside Lutris or POL](#setup-games-inside-lutris-or-pol)
       * [lutris](#lutris)
       * [Playonlinux](#Playonlinux)
-* [Using launcher](#using-launcher)
+* [Launcher usage](#launcher-usage)
    * [Download launcher script](#download-launcher)
    * [Supported arguments](#supported-arguments)
       * [In game UI Language](#in-game-ui-language)
@@ -115,7 +115,7 @@ Launch steam login and suppose you will see black screen.
 So select steam shortcut click and add ```-no-cef-sandbox -console``` to arguments to use simplified version of steam.
 Launch steam again and install Homeworld remastered.
 
-## Using launcher
+## Launcher Usage
 
 ### Download launcher
 
