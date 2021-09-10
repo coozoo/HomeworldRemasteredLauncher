@@ -177,8 +177,12 @@ if [[ useoptirun -eq 1 ]]; then
 	optimus="optirun";
     elif  hash primusrun 2>/dev/null; then
 	optimus="primusrun";
+    elif [[ $(__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only glxinfo -B|grep "OpenGL vendor"|grep NVIDIA) != "" ]]; then
+	optimus="__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only";
     fi
 fi
+
+echo "Optimus:  $optimus";
 
 useosd="";
 if hash osd_cat 2>/dev/null; then
