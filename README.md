@@ -292,7 +292,7 @@ To disable osd FPS you need to find `useosd=""` and comment threelined if below 
 
 #### Ingame screen resolution
 
-Old games Homeworld and Homeworld2 has limited set of screen resolutions so script will determine your current screen width and height and set ingame resolution accordingly.
+Old games Homeworld and Homeworld2 has limited set of screen resolutions so script will determine your current screen width and height and it will set ingame resolution accordingly.
 
 To disable this behavior find `useautoresolution=1` and change it to `useautoresolution=0`. In this case don't forget to check default screen size values inside starthomeworld function. Check screenWidth and screenHeight variables for first and second if and change it apropriatly. 
 
@@ -315,7 +315,7 @@ So this script actually a set of tweaks.
 
 Games work under Wine>5 (tested with up to 5.7) but there is some problems with it and to eliminate them it's better to use Wine4(tested with 4.21 latest available in lutris and playonlinux).
 
-Don't try to use 32bit wine FPS in remastered version will be significatly lower that 64bit.
+Don't try to use 32bit wine FPS in remastered version will be significatly lower than 64bit.
 
 Wineprefix should contain:
 
@@ -330,7 +330,7 @@ Inside script there is option to do that for you (6). You can view it closely in
 
 ### Original Homeworld .NET launcher
 
-It is simply doesn't work. Even with 32bit prefix (cause .NET support in wine for 32 better that 64) it doesn't work.  
+It is simply doesn't work. Even with 32bit prefix (cause .NET support in wine for 32 better than 64) it doesn't work.  
 As reported in internet you need to use this launcher to activate multiplayer game. I didn't try it. But suppose you need virtualbox for that.
 
 ### Homeworld
@@ -353,14 +353,14 @@ As for homeworld I prefer to use windowed mode and sure again it is requiered to
 
 Example of command line `-w 1024 -h 768 -hardwarecursor`.
 
-Language support from .big files and can be set by `-locale German`. But looks like it's only for UI, I'm not sure that game contains sounds for other languages but if it's true thatn maybe it's possible to handle by file renaming(I've tried with German and didn't sight the differnce looks like all sounds left in English).
+Language support from .big files and can be set by `-locale German`. But looks like it's only for UI, I'm not sure that game contains sounds for other languages but if it's true then maybe it's possible to handle by file renaming(I've tried with German and didn't sight the differnce looks like all sounds left in English).
 
 ### Homeworld Remastered
 
 Homeworld Remastered hm it can't be launched by default.  
 You need to force report availaable version of opengl by setting.  
 `export MESA_GL_VERSION_OVERRIDE=3.3COMPAT`
-But even after that game will be almost empty just tutorial available.  
+But even after that this game will be almost empty just tutorial available.  
 Game requires command line to use remastered versions. You can find those commands inside script.  
 
 With wine5 intro video will be in creep some kind of flickering loop of attempts to play it. But any other videos looks like played fine I've didn't played game to the end yet(and I won't under wine5). To eliminate this you can install winetricks directpplay and directmusic, but I'm not sure looks like it has more crashes with them on high settings.
@@ -373,7 +373,7 @@ Wine 4.21 intro video runs nice looks like high settings more stable with it but
 
 Game resolution can be set inside game settings and wine window will be resized automatically to fit game. Again "winecfg" -> "Graphics" tab -> mark checkbox "Automatically capture the mouse in full-screen windows" to navigate in game without problem of leaving window.
 
-Language support the same as in cace of homeworld2 and available from .big files it can be set by `-locale German`. But looks like it's only for UI, I'm not sure that game contains sounds for other languages but if it's true thatn maybe it's possible to handle by file renaming(I've tried with German and didn't sight the differnce looks like all sounds left in English).
+Language support the same as in case of homeworld2 and available from .big files it can be set by `-locale German`. But looks like it's only for UI, I'm not sure that game contains sounds for other languages but if it's true then maybe it's possible to handle by file renaming(I've tried with German and didn't sight the differnce looks like all sounds left in English).
 
 ### Steam start
 
