@@ -3,7 +3,7 @@
 # Homeworld bash launcher
 # Author: Yuriy Kuzin
 ####################################
-version="1.1"
+version="1.2"
 ######## WINEPREFIX REQUIREMENTS ##########
 # lutris provides runner for steam (just a bit flickering UI inside but it works)
 # so we can use lutris steam to install homeworld
