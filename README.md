@@ -16,6 +16,7 @@ So this script attempt to make game launcher for linux using game installed by S
 * [Features](#features)
 * [Preparations to use script](#preparations-to-use-script)
    * [Setup Games inside Lutris or POL](#setup-games-inside-lutris-or-pol)
+      * [Steam Linux (proton)](steam-linux)
       * [lutris](#lutris)
       * [Playonlinux](#Playonlinux)
 * [Launcher usage](#launcher-usage)
@@ -65,7 +66,11 @@ Maybe something more... but that's how it works in my case.
 
 ## Preparations to use script
 
-You should install Lutris or Playonlinux in the way available for your distribution. winetricks should be installed as well
+Steam for linux with proton now supported and default. If you want to use windows distribution then you should install Lutris or Playonlinux in the way available for your distribution. winetricks should be installed as well
+
+###  Steam Linux (proton)
+
+Go to steam library and download game. After finishing download you should go inside library to game properties->compatibility and mark checkbos force to use specificsteamplay compatubility tool, select proton 4.11 there. After that try to launch game once from steam (this will trigger to download proton and create wine prefix). After that you can launch script and use setup prefix. Wait till everything will be installed. Intro video usually wiht some kinda lagging (only once it was normal for me).
 
 ### Setup Games inside Lutris or POL
 
@@ -75,7 +80,7 @@ This script still allows to use the same wineprefix for other games and you don'
 So if you have Steam under wine (playonlinux or lutris) you can install game by steam and skip this step.  
 In caseof GOG game only playonlinux supported (but you can override wineprefix with custom one).
 
-We need to install Homeworld game in our steam (suppose GOG will work without problem).  
+We need to install Homeworld game in our steam (suppose GOG will work without problem). 
 
 ####  Lutris
 
