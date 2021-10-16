@@ -68,7 +68,7 @@ Maybe something more... but that's how it works in my case.
 
 Steam for linux with proton now supported and default. If you want to use windows distribution then you should install Lutris or Playonlinux in the way available for your distribution. winetricks should be installed as well
 
-###  Steam Linux (proton)
+###  SteamLinux
 
 Go to steam library and download game. After finishing download you should go inside library to game properties->compatibility and mark checkbos force to use specificsteamplay compatubility tool, select proton 4.11 there. After that try to launch game once from steam (this will trigger to download proton and create wine prefix). After that you can launch script and use setup prefix. Wait till everything will be installed. Intro video usually wiht some kinda lagging (only once it was normal for me).
 
