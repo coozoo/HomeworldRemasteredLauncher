@@ -16,7 +16,7 @@ So this script attempt to make game launcher for linux using game installed by S
 * [Features](#features)
 * [Preparations to use script](#preparations-to-use-script)
    * [Setup Games inside Lutris or POL](#setup-games-inside-lutris-or-pol)
-      * [Steam Linux (proton)](#steam-linux)
+      * [SteamLinux](#steamlinux)
       * [lutris](#lutris)
       * [Playonlinux](#Playonlinux)
 * [Launcher usage](#launcher-usage)
