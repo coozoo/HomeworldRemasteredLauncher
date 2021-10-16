@@ -37,6 +37,14 @@ useautoresolution=1
 # try to use optirun or primusrun
 useoptirun=1
 
+
+#test if homeworld installed in steam linux
+#if [[ "$(cat registry.vdf|grep -A 6 244160|grep installed|grep 1)" != "" ]]; then echo installed; else echo notinstalled;fi
+#detect if proton prefix installed
+#if [[ $(ls -l /home/happiness/.local/share/Steam/steamapps/compatdata|grep 244160) != "" ]]; then echo protonprefixexists; else echo noptotonprefixlaunchonce; fi
+#capture steamaapslocation
+#cat registry.vdf|grep SourceModInstallPath|grep -o '/.*\\'|rev|cut -c3-|rev
+
 function findinstalldir
 {
     local directory=$1
@@ -58,58 +66,94 @@ lutrissteamprefix="$HOME/.local/share/lutris/runners/winesteam/prefix64"
 installdir=""
 usesteam=0
 
-if [[ ! -z "$wineprefix" ]];then
-    if [[ -d $wineprefix ]]; then
-	installdir="$(findinstalldir $wineprefix)"
-	if [[ -z "$installdir" ]];then
-	    echo "Error!!! Unable to find Homeworld in specified wineprefix: $wineprefix"
+steamhome="$HOME/.steam/"
+steamapppath="$(cat ""$steamhome""registry.vdf|grep SourceModInstallPath|grep -o '/.*\\'|rev|cut -c3-|rev)"
+echo $steamapppath
+
+if [[ "$(cat ""$steamhome""registry.vdf|grep -A 6 244160|grep installed|grep 1)" != "" ]]; then
+ echo "Native steam installed";
+    if [[ -d $steamapppath"/common/Homeworld" ]];then
+	installdir=$steamapppath"/common/Homeworld";
+	if [[ -d $steamapppath"/compatdata/244160/pfx" ]];then
+	    wineprefix=$steamapppath"/compatdata/244160/pfx";
 	fi
-    else
-	echo "Error!!! Forced wineprefix: $wineprefix"
-	echo "Doesn't exist!"
-	exit 1
     fi
+else 
+ echo "Native steam not installed";
 fi
 
+echo $installdir;
 
-if [[ -z "$wineprefix" ]] && [[ -d $lutrissteamprefix ]]; then
-    echo "Lutris prefix"
-    wineprefix=$lutrissteamprefix
-    installdir="$(findinstalldir $lutrissteamprefix)"
-fi
+if [[ -z $steamapppath ]];then
+    echo "Non native steam locations";
+    if [[ ! -z "$wineprefix" ]];then
+	if [[ -d $wineprefix ]]; then
+	    installdir="$(findinstalldir $wineprefix)"
+	    if [[ -z "$installdir" ]];then
+		echo "Error!!! Unable to find Homeworld in specified wineprefix: $wineprefix"
+	    fi
+	else
+	    echo "Error!!! Forced wineprefix: $wineprefix"
+	    echo "Doesn't exist!"
+	    exit 1
+	fi
+    fi
 
-if [[ -z "$wineprefix" ]];then
-    echo "Search playonlinux prefixes"
-    if [[ -d $polprefixes ]];then
-	for directory in `find "$polprefixes" -maxdepth 1 -mindepth 1 -type d`; do
-	    polconfig="$directory/playonlinux.cfg"
-	    if [[ -f "$polconfig" ]];then
-		polplatform=$(cat "$directory/playonlinux.cfg"|grep "amd64"|cut -d "=" -f2)
-		if [[ "$polplatform" == "amd64" ]];then
-		    echo "Searching homeworlld inside prefix: $directory"
-		    # find location of games in wine registery steam or GOG versions
-		    #installdir=$(cat $directory/system.reg |grep -i -A20  'Steam App 244160\|2114871440'|grep -i 'InstallLocation'|head -1|cut -d "=" -f2|sed 's|"C:|drive_c|g'|sed 's|\\\\"||'|sed 's|\\\\|/|g'|sed 's|"||g')
-		    installdir="$(findinstalldir $directory)"
-		    if [[ ! -z "$installdir" ]];then
-			wineprefix="$directory"
-			break
+
+    if [[ -z "$wineprefix" ]] && [[ -d $lutrissteamprefix ]]; then
+	echo "Lutris prefix"
+	wineprefix=$lutrissteamprefix
+	installdir="$(findinstalldir $lutrissteamprefix)"
+    fi
+
+    if [[ -z "$wineprefix" ]];then
+	echo "Search playonlinux prefixes"
+	if [[ -d $polprefixes ]];then
+	    for directory in `find "$polprefixes" -maxdepth 1 -mindepth 1 -type d`; do
+		polconfig="$directory/playonlinux.cfg"
+		if [[ -f "$polconfig" ]];then
+		    polplatform=$(cat "$directory/playonlinux.cfg"|grep "amd64"|cut -d "=" -f2)
+		    if [[ "$polplatform" == "amd64" ]];then
+			echo "Searching homeworlld inside prefix: $directory"
+			# find location of games in wine registery steam or GOG versions
+			#installdir=$(cat $directory/system.reg |grep -i -A20  'Steam App 244160\|2114871440'|grep -i 'InstallLocation'|head -1|cut -d "=" -f2|sed 's|"C:|drive_c|g'|sed 's|\\\\"||'|sed 's|\\\\|/|g'|sed 's|"||g')
+			installdir="$(findinstalldir $directory)"
+			if [[ ! -z "$installdir" ]];then
+			    wineprefix="$directory"
+			    break
+			fi
 		    fi
 		fi
-	    fi
-	done
-    else
-	echo "Can't find wineprefix with installed homeworld inside"
+	    done
+	else
+	    echo "Can't find wineprefix with installed homeworld inside"
+	fi
     fi
+    
+else
+    echo "Native steam determine locations"
 fi
 echo "Homeworld detected in wineprefix: $wineprefix"
 
 echo -e "Homeworld install dir: $installdir \n"
 
-if [[ ! -z "$wineprefix" ]];then
-    steaminstallpath="$(findsteaminstallpath $wineprefix)"
-    if [[ ! -z "$steaminstallpath" ]];then
-	usesteam=1
-	echo "Steam found in: $steaminstallpath"
+if [[ -z $steamapppath ]];then
+    if [[ ! -z "$wineprefix" ]];then
+	steaminstallpath="$(findsteaminstallpath $wineprefix)"
+	if [[ ! -z "$steaminstallpath" ]];then
+	    usesteam=1
+	    echo "Steam found in: $steaminstallpath"
+	fi
+    fi
+else
+    if [[ -f /usr/bin/steam ]];then
+	if [[ "$(ps aux|grep steam|awk {'print $2;'}|grep $(cat $HOME/.steam/steam.pid))" == "$(cat $HOME/.steam/steam.pid)" ]];then
+	    echo "Native steam already running"
+	else
+	    echo "Launching native steam"
+	    nohup /usr/bin/steam %U  >/dev/null 2>&1 &
+	    while [[ $(ps aux|grep steam|grep webhelper|wc -l) -le 5 ]] && [[ "$(ps aux|grep steam|awk {'print $2;'}|grep $(cat $HOME/.steam/steam.pid))" != "$(cat $HOME/.steam/steam.pid)" ]]; do echo "wait 5 seconds for steam launch"; sleep 5; done
+	fi
     fi
 fi
 
@@ -154,7 +198,19 @@ export MESA_GL_VERSION_OVERRIDE=3.3COMPAT
 # you can try your version but read comments above
 winebin="$HOME/.PlayOnLinux/wine/linux-amd64/4.21/bin/wine"
 lutriswinebin="$HOME/.local/share/lutris/runners/wine/lutris-4.21-x86_64/bin/wine"
-if [[ -f $winebin ]]; then
+#I can't find protons name relation to version in config, actually it's inside packed vdf, and I can't read it from bash so I'm hardcoding them
+if [[ -f "$steamapppath/common/Proton 4.11/dist/bin/wine" ]];then
+    protonbin="$steamapppath/common/Proton 4.11/dist/bin/wine"
+elif [[ -f "$steamapppath/common/Proton 5.0/dist/bin/wine" ]];then
+    protonbin="$steamapppath/common/Proton 5.0/dist/bin/wine"
+elif [[ -f "$steamapppath/common/Proton 5.13/dist/bin/wine" ]];then
+    protonbin="$steamapppath/common/Proton 5.13/dist/bin/wine"
+fi
+#protonbin="$steamapppath/common/Proton 5.0/dist/bin/wine"
+if [[ ! -z $steamapppath ]] && [[ -f $protonbin ]]; then
+    echo "Proton detected";
+    winebin=$protonbin
+elif [[ -f $winebin ]]; then
     echo "Playonlinux wine has been found"
 elif [[ -f $lutriswinebin ]]; then
     echo "Lutris wine has been found"
@@ -162,12 +218,19 @@ elif [[ -f $lutriswinebin ]]; then
 elif hash wine 2>/dev/null; then
     echo "Warnning!!! System wine will be use, keep in mind of possible problems"
 else
-    echo "Error!!! Please install wine recomended playonlinux"
-    echo '"Tools" menu -> "Manage wine versions" menu item -> "Wine versions (amd64)" tab"'
-    echo 'Find and select 4.21 from the left side'
-    echo 'And click ">" button to install it'
-    echo 'You can use Lutris as well. Find wine in runners and push Manage Versions button, find and mark lutris-4.21 item in list'
-    exit 1
+    if [[ ! -z $steamapppath ]];then
+	echo "Error!!! Please install wine recomended playonlinux"
+	echo '"Tools" menu -> "Manage wine versions" menu item -> "Wine versions (amd64)" tab"'
+	echo 'Find and select 4.21 from the left side'
+	echo 'And click ">" button to install it'
+	echo 'You can use Lutris as well. Find wine in runners and push Manage Versions button, find and mark lutris-4.21 item in list'
+	exit 1
+    else
+	echo "You need steam to force proton download."
+	echo "Launch game from Steam (it won't run but proton will be installed)"
+	echo "It' better to set proton 4.11"
+	echo "Go to steam library, Right click on game name -> Properties -> COMPATIBILITY -> mar Force.. checkbox -> select Proton 4.11-13"
+    fi
 fi
 
 
@@ -299,7 +362,11 @@ function starthomeworld
             fi
             homeworldparams=$(echo -waveout -"$screenWidth" -safeGL -waveout -noglddraw -noswddraw -nofastfe -triple "$localehw")
             exename=Homeworld.exe
-            exelocation="$wineprefix/$installdir/Homeworld1Classic/exe";
+            if [[ -z $steamapppath ]];then
+        	exelocation="$wineprefix/$installdir/Homeworld1Classic/exe";
+    	    else
+    		exelocation="$installdir/Homeworld1Classic/exe";
+    	    fi
 	
     elif [[ $itemid -eq 2 ]];then
 	    screenWidth=1680
@@ -313,8 +380,13 @@ function starthomeworld
         	screenHeight=$((($(xrandr | grep '*'|awk '{print $1;}'|awk -Fx '{print $2;}')-56)))
         	echo "hw2 screen height: $screenHeight"
             fi
-            exelocation="$wineprefix/$installdir/Homeworld2Classic/Bin/Release";
-            datalocation="$wineprefix/$installdir/Homeworld2Classic/Data";
+            if [[ -z $steamapppath ]];then
+        	exelocation="$wineprefix/$installdir/Homeworld2Classic/Bin/Release";
+        	datalocation="$wineprefix/$installdir/Homeworld2Classic/Data";
+    	    else
+    		exelocation="$installdir/Homeworld2Classic/Bin/Release";
+        	datalocation="$installdir/Homeworld2Classic/Data";
+    	    fi
             localehw2=""
             if [[ "$yourlanguage" ]]; then
         	
@@ -333,8 +405,13 @@ function starthomeworld
 	    screenWidth=800
             screenHeight=600
             exename=HomeworldRM.exe
-            exelocation="$wineprefix/$installdir/HomeworldRM/Bin/Release";
-            datalocation="$wineprefix/$installdir/HomeworldRM/Data";
+            if [[ -z $steamapppath ]];then
+        	exelocation="$wineprefix/$installdir/HomeworldRM/Bin/Release";
+        	datalocation="$wineprefix/$installdir/HomeworldRM/Data";
+    	    else
+    		exelocation="$installdir/HomeworldRM/Bin/Release";
+        	datalocation="$installdir/HomeworldRM/Data";
+    	    fi
             localehwrm=""
             if [[ "$yourlanguage" ]]; then
         	
@@ -354,8 +431,13 @@ function starthomeworld
 	    screenWidth=800
             screenHeight=600
 	    exename=HomeworldRM.exe
-	    exelocation="$wineprefix/$installdir/HomeworldRM/Bin/Release";
-	    datalocation="$wineprefix/$installdir/HomeworldRM/Data";
+	    if [[ -z $steamapppath ]];then
+		exelocation="$wineprefix/$installdir/HomeworldRM/Bin/Release";
+		datalocation="$wineprefix/$installdir/HomeworldRM/Data";
+	    else
+		exelocation="$installdir/HomeworldRM/Bin/Release";
+		datalocation="$installdir/HomeworldRM/Data";
+	    fi
             localehwrm=""
             if [[ "$yourlanguage" ]]; then
         	
@@ -406,6 +488,8 @@ function starthomeworld
     fi
     cd "$exelocation"
     # start application
+    #eval $(echo LD_PRELOAD="/home/happiness/.local/share/Steam/ubuntu12_32/gameoverlayrenderer.so" WINEDEBUG=fps WINEPREFIX="\"$wineprefix\"" "$optimus" "\"$winebin\"" explorer /desktop=HomeworldRM,"$screenWidth"x"$screenHeight" \""$exename"\" "$homeworldparams" "$useosd")
+    #in some reason overlay blocks about third part of screen and prevents to mouse move there
     eval $(echo WINEDEBUG=fps WINEPREFIX="\"$wineprefix\"" "$optimus" "\"$winebin\"" explorer /desktop=HomeworldRM,"$screenWidth"x"$screenHeight" \""$exename"\" "$homeworldparams" "$useosd")
     # if you don't want to close steam on exit comment row below
     eval $(echo WINEPREFIX="\"$wineprefix\"" wineserver -k)
